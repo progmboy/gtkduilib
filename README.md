@@ -6,7 +6,7 @@ duilib向gtk的移植
 
 windows:
 ```
-install [msys2] (https://msys2.github.io/)
+install [msys2](https://msys2.github.io/)
 then install gtk3.0.x from msys2 shell
 install codeblocks
 open the workspace and build
