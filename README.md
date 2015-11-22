@@ -47,6 +47,7 @@ player run in ubuntu:
 2. gtk for windows的bug多多，建议还是在linux下弄
 3. gtk 在windows下是支持加载系统字体的,但是只支持english name, 大家写xml的时候注意下。
 4. 作者心灵很脆弱,不喜勿喷, 谢谢 ^_^
+5. 欢迎pull request
 
 ##TODO:
 太多了。
