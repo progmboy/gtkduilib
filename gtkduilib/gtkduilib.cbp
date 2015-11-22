@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="gtkduilib" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="dui" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Debug Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-W" />
+					<Add option="-O0" />
+					<Add option="-D_DEBUG" />
+					<Add option="-D_LIB" />
+					<Add directory="D:/Library/gtk+-bundle_3.6.4-20130921_win32/include/gtk-3.0" />
+					<Add directory="D:/Library/gtk+-bundle_3.6.4-20130921_win32/include/cairo" />
+					<Add directory="D:/Library/gtk+-bundle_3.6.4-20130921_win32/include/pango-1.0" />
+					<Add directory="D:/Library/gtk+-bundle_3.6.4-20130921_win32/include/glib-2.0" />
+					<Add directory="D:/Library/gtk+-bundle_3.6.4-20130921_win32/lib/glib-2.0/include" />
+					<Add directory="D:/Library/gtk+-bundle_3.6.4-20130921_win32/include/gdk-pixbuf-2.0" />
+					<Add directory="D:/Library/gtk+-bundle_3.6.4-20130921_win32/include/atk-1.0" />
+				</Compiler>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="dui" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="Release Win32" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-W" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_LIB" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="`pkg-config --cflags gtk+-3.0`" />
+			<Add option="-Wconversion" />
+		</Compiler>
+		<Linker>
+			<Add option="`pkg-config --libs gtk+-3.0`" />
+		</Linker>
+		<Unit filename="DialogBuilder.cpp" />
+		<Unit filename="DialogBuilder.h" />
+		<Unit filename="NotifyPump.cpp" />
+		<Unit filename="NotifyPump.h" />
+		<Unit filename="ReadMe.txt" />
+		<Unit filename="ResourceMgr.cpp" />
+		<Unit filename="ResourceMgr.h" />
+		<Unit filename="UIButton.cpp" />
+		<Unit filename="UIButton.h" />
+		<Unit filename="UIChildLayout.cpp" />
+		<Unit filename="UIChildLayout.h" />
+		<Unit filename="UIContainer.cpp" />
+		<Unit filename="UIContainer.h" />
+		<Unit filename="UIControl.cpp" />
+		<Unit filename="UIControl.h" />
+		<Unit filename="UIDefine.h" />
+		<Unit filename="UIEvent.cpp" />
+		<Unit filename="UIEvent.h" />
+		<Unit filename="UIFont.cpp" />
+		<Unit filename="UIFont.h" />
+		<Unit filename="UIHorizontalLayout.cpp" />
+		<Unit filename="UIHorizontalLayout.h" />
+		<Unit filename="UILabel.cpp" />
+		<Unit filename="UILabel.h" />
+		<Unit filename="UILib.h" />
+		<Unit filename="UIList.cpp" />
+		<Unit filename="UIList.h" />
+		<Unit filename="UIOption.cpp" />
+		<Unit filename="UIOption.h" />
+		<Unit filename="UIProgress.cpp" />
+		<Unit filename="UIProgress.h" />
+		<Unit filename="UIRef.h" />
+		<Unit filename="UIRender.cpp" />
+		<Unit filename="UIRender.h" />
+		<Unit filename="UIScrollBar.cpp" />
+		<Unit filename="UIScrollBar.h" />
+		<Unit filename="UISlider.cpp" />
+		<Unit filename="UISlider.h" />
+		<Unit filename="UIString.cpp" />
+		<Unit filename="UIString.h" />
+		<Unit filename="UITabLayout.cpp" />
+		<Unit filename="UITabLayout.h" />
+		<Unit filename="UIText.cpp" />
+		<Unit filename="UIText.h" />
+		<Unit filename="UITileLayout.cpp" />
+		<Unit filename="UITileLayout.h" />
+		<Unit filename="UIUtils.cpp" />
+		<Unit filename="UIUtils.h" />
+		<Unit filename="UIVerticalLayout.cpp" />
+		<Unit filename="UIVerticalLayout.h" />
+		<Unit filename="UIWindow.cpp" />
+		<Unit filename="UIWindow.h" />
+		<Unit filename="WindowImpBase.cpp" />
+		<Unit filename="WindowImpBase.h" />
+		<Unit filename="compat.h" />
+		<Unit filename="pugiconfig.hpp" />
+		<Unit filename="pugixml.cpp" />
+		<Unit filename="pugixml.hpp" />
+		<Unit filename="stdafx.cpp" />
+		<Unit filename="stdafx.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

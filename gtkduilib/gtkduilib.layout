@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug Win32" />
+	<File name="WindowImpBase.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="425" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="NotifyPump.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="54" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UIVerticalLayout.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1997" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="UIRef.h" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="367" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="UIList.h" open="1" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6500" topLine="204" />
+		</Cursor>
+	</File>
+	<File name="stdafx.cpp" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UIScrollBar.cpp" open="1" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1041" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="UIButton.cpp" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="191" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UIString.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="721" topLine="32" />
+		</Cursor>
+	</File>
+	<File name="pugixml.cpp" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="196918" topLine="7153" />
+		</Cursor>
+	</File>
+	<File name="UIButton.h" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1316" topLine="37" />
+		</Cursor>
+	</File>
+	<File name="stdafx.h" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="279" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ResourceMgr.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="767" topLine="40" />
+		</Cursor>
+	</File>
+	<File name="UIList.cpp" open="1" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="25602" topLine="994" />
+		</Cursor>
+	</File>
+	<File name="UIControl.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17714" topLine="845" />
+		</Cursor>
+	</File>
+	<File name="UIString.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="273" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="WindowImpBase.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6326" topLine="227" />
+		</Cursor>
+	</File>
+	<File name="UIDefine.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8217" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UIWindow.cpp" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5023" topLine="685" />
+		</Cursor>
+	</File>
+	<File name="DialogBuilder.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13328" topLine="428" />
+		</Cursor>
+	</File>
+	<File name="UIProgress.cpp" open="1" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="371" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UIControl.h" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9217" topLine="485" />
+		</Cursor>
+	</File>
+	<File name="NotifyPump.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="365" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UIText.cpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1859" topLine="64" />
+		</Cursor>
+	</File>
+	<File name="UIUtils.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13173" topLine="124" />
+		</Cursor>
+	</File>
+	<File name="UIUtils.h" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="331" topLine="68" />
+		</Cursor>
+	</File>
+	<File name="UIWindow.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="36" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="UILib.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="187" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="compat.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1550" topLine="0" />
+		</Cursor>
+	</File>
+	<EditorTabsLayout layout="1394a290565151f7000041b700000002=0;gtkduilib:UIControl.cpp,1;gtkduilib:UIString.cpp,2;gtkduilib:UILib.h,3;gtkduilib:DialogBuilder.cpp,4;gtkduilib:UIVerticalLayout.cpp,5;gtkduilib:ResourceMgr.cpp,6;gtkduilib:UIString.h,7;gtkduilib:compat.h,8;gtkduilib:UIUtils.cpp,9;gtkduilib:UIWindow.h,10;gtkduilib:WindowImpBase.h,11;gtkduilib:WindowImpBase.cpp,12;gtkduilib:NotifyPump.cpp,13;gtkduilib:NotifyPump.h,14;gtkduilib:UIDefine.h,15;gtkduilib:UIText.cpp,16;gtkduilib:UIButton.cpp,17;gtkduilib:UIWindow.cpp,18;gtkduilib:pugixml.cpp,19;gtkduilib:stdafx.h,20;gtkduilib:stdafx.cpp,21;gtkduilib:UIButton.h,22;gtkduilib:UIRef.h,23;gtkduilib:UIControl.h,24;gtkduilib:UIScrollBar.cpp,25;gtkduilib:UIUtils.h,26;gtkduilib:UIProgress.cpp,27;gtkduilib:UIList.cpp,28;gtkduilib:UIList.h@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=829;besth=265;minw=829;minh=265;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=1394a290565151f7000041b700000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+</CodeBlocks_layout_file>

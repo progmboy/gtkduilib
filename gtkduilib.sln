@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtkduilib", "gtkduilib\gtkduilib.vcproj", "{245726C5-62B3-4978-95BC-678DB6A8CA0D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtkduilib_test", "gtkduilib_test\gtkduilib_test.vcproj", "{D496C7CB-54B6-4E70-AAD1-910D338840A9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{245726C5-62B3-4978-95BC-678DB6A8CA0D} = {245726C5-62B3-4978-95BC-678DB6A8CA0D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{245726C5-62B3-4978-95BC-678DB6A8CA0D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{245726C5-62B3-4978-95BC-678DB6A8CA0D}.Debug|Win32.Build.0 = Debug|Win32
+		{245726C5-62B3-4978-95BC-678DB6A8CA0D}.Release|Win32.ActiveCfg = Release|Win32
+		{245726C5-62B3-4978-95BC-678DB6A8CA0D}.Release|Win32.Build.0 = Release|Win32
+		{D496C7CB-54B6-4E70-AAD1-910D338840A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D496C7CB-54B6-4E70-AAD1-910D338840A9}.Debug|Win32.Build.0 = Debug|Win32
+		{D496C7CB-54B6-4E70-AAD1-910D338840A9}.Release|Win32.ActiveCfg = Release|Win32
+		{D496C7CB-54B6-4E70-AAD1-910D338840A9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
