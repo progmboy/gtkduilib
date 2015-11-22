@@ -20,11 +20,17 @@ open the workspace and build
 
 ##Demo
 以前弄好的Demo找不到了但是有截图.
-player run in windows
+
+player run in windows:
+
 ![player_windows](https://github.com/progmboy/gtkduilib/raw/master/snapshots/1.png)
-player run in ubuntu
+
+player run in ubuntu:
+
 ![player_ubuntu](https://github.com/progmboy/gtkduilib/raw/master/snapshots/2.jpg)
-360safe run in ubuntu
+
+360safe run in ubuntu:
+
 ![360demo](https://github.com/progmboy/gtkduilib/raw/master/snapshots/3.jpg)
 
 ##和原版的duilib有啥不同
