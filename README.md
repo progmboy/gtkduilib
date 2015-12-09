@@ -46,7 +46,7 @@ player run in ubuntu:
 1. 做这个的目的其实是为了学习下gtk.duilib的框架很好，把windows消息机制移植到gtk的机制，控件代码基本上都不用改。
 2. gtk for windows的bug多多，建议还是在linux下弄
 3. gtk 在windows下是支持加载系统字体的,但是只支持english name, 大家写xml的时候注意下。
-4. 作者心灵很脆弱,不喜勿喷, 谢谢 ^_^
+4. 不喜勿喷, 谢谢 ^_^
 5. 欢迎pull request
 
 ##TODO:
