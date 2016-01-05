@@ -3,5 +3,7 @@
 	<Workspace title="Workspace">
 		<Project filename="gtkduilib/gtkduilib.cbp" />
 		<Project filename="gtkduilib_test/gtkduilib_test.cbp" />
+		<Project filename="360Demo/360Demo.cbp" />
+		<Project filename="qyplayer/qyplayer.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

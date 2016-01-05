@@ -1,8 +1,6 @@
 // gtkduilib_test.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
 #include <vector>
 #include "../gtkduilib/UILib.h"
 
@@ -35,33 +33,6 @@ const wchar_t * gszMsg[] = {
 };
 
 
-class ComputerExamineUI : public CUIContainer
-{
-public:
-    ComputerExamineUI()
-    {
-        CDialogBuilder builder;
-        CUIContainer* pComputerExamine = static_cast<CUIContainer*>(builder.Create(L"ComputerExamine2.xml"));
-        if( pComputerExamine ) {
-            this->Add(pComputerExamine);
-        }
-        else {
-            this->RemoveAll();
-            return;
-        }
-    }
-};
-
-class CDialogBuilderCallbackEx : public IDialogBuilderCallback
-{
-public:
-    CUIControl* CreateControl(const CUIString& strClass)
-    {
-        if(strClass == L"ComputerExamine")
-            return new ComputerExamineUI;
-        return NULL;
-    }
-};
 class CSkinWnd : public CWindowImpBase
 {
 public:
@@ -143,34 +114,13 @@ public:
     void Notify(TNotifyUI& msg)
     {
         if (msg.Type <= (sizeof(gszMsg) / sizeof(gszMsg[0]) + 0x40000000)){
-            wprintf(L"msg %s sender %s\n", gszMsg[msg.Type-0x40000000], (LPCWSTR)msg.pSender->GetName());
+            wprintf(L"msg %s sender %s\n", (LPCWSTR)gszMsg[msg.Type-0x40000000], (LPCWSTR)msg.pSender->GetName());
         }
 
         if (msg.Type == DUI_MSGTYPE_CLICK && msg.pSender->GetName() == L"button"){
             Close();
         }
 
-        else if(msg.Type == DUI_MSGTYPE_SELECTCHANGED)
-        {
-            CUIString name = msg.pSender->GetName();
-            CUITabLayout* pControl = static_cast<CUITabLayout*>(FindControl(L"switch"));
-            if(name==L"examine")
-                pControl->SelectItem(0);
-            else if(name==L"trojan")
-                pControl->SelectItem(1);
-            else if(name==L"plugins")
-                pControl->SelectItem(2);
-            else if(name==L"vulnerability")
-                pControl->SelectItem(3);
-            else if(name==L"rubbish")
-                pControl->SelectItem(4);
-            else if(name==L"cleanup")
-                pControl->SelectItem(5);
-            else if(name==L"fix")
-                pControl->SelectItem(6);
-            else if(name==L"tool")
-                pControl->SelectItem(7);
-        }
         CWindowImpBase::Notify(msg);
     }
 
@@ -203,7 +153,7 @@ int _tmain(int argc, _TCHAR* argv[])
 int main(int argc, char* argv[])
 #endif
 {
-
+    wprintf(L"%s\n", "ÖÐ¹ú");
     //CResourceMgr ss;
 
     gtk_init(NULL, NULL);

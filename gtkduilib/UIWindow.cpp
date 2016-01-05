@@ -4,23 +4,23 @@
 gboolean wrap_draw(GtkWidget *widget, cairo_t *cr, CUIWindow *pWindow)
 {
     assert(pWindow);
-    
+
     //
     // return true will stop call the old handler.
     //
-    
+
     g_print ("draw event\n");
     return (gboolean)pWindow->MessageHandler(DUI_WM_PAINT, (LPARAM)cr, NULL);
 }
 
-void wrap_size(GtkWidget *widget, GdkRectangle *allocation, 
+void wrap_size(GtkWidget *widget, GdkRectangle *allocation,
                 CUIWindow *pWindow)
 {
-    
+
     //
     // this event is emitted when window size if changed
     //
-    
+
     //g_print ("size event\n");
     SIZE Size = {allocation->width, allocation->height};
     pWindow->MessageHandler(DUI_WM_SIZE, (WPARAM)&Size, NULL);
@@ -29,27 +29,27 @@ void wrap_size(GtkWidget *widget, GdkRectangle *allocation,
 gboolean wrap_motion_notify(GtkWidget *widget, GdkEventMotion  *event, CUIWindow *pWindow)
 {
     //
-    // this even is emitted when mouse move, 
+    // this even is emitted when mouse move,
     // just like WM_MOUSEMOVE message
     // note:
     // in GTK the event handler return true will stop call the old handler
     //
-    
+
     //g_print ("motion_notify event\n");
     return (gboolean)pWindow->MessageHandler(DUI_WM_MOUSEMOVE, (WPARAM)event, NULL);
 }
 
 gboolean wrap_button_press(GtkWidget *widget, GdkEventButton *Event, CUIWindow *pWindow)
 {
-    
+
     //
     // this event is send when mouse button is pressed
     // In window this event is combine with
     // WM_LBUTTONDOWN WM_RBUTTONDOWN WM_RBUTTON WM_MBUTTONDOWN
-    // WM_LBUTTONDBLCLK WM_RBUTTONDBLCLK WM_MBUTTONDBLCLK 
+    // WM_LBUTTONDBLCLK WM_RBUTTONDBLCLK WM_MBUTTONDBLCLK
     //
-    
-    
+
+
     if (Event->type == GDK_BUTTON_PRESS){
         g_print ("WM_BUTTONDOWN event %d button\n", Event->button);
     }else if (Event->type == GDK_BUTTON_RELEASE){
@@ -70,9 +70,9 @@ gboolean wrap_button_release(GtkWidget *widget, GdkEventButton *event, CUIWindow
     // this event is send when mouse button is released
     // In window this event is combine with
     // WM_LBUTTONDOWN WM_RBUTTONDOWN WM_RBUTTON WM_MBUTTONDOWN
-    // WM_LBUTTONDBLCLK WM_RBUTTONDBLCLK WM_MBUTTONDBLCLK 
+    // WM_LBUTTONDBLCLK WM_RBUTTONDBLCLK WM_MBUTTONDBLCLK
     //
-    
+
     g_print ("button_release event\n");
     return (gboolean)pWindow->MessageHandler(DUI_WM_MOUSERELEASE, (WPARAM)event, NULL);
 }
@@ -83,7 +83,7 @@ gboolean wrap_enter_notify(GtkWidget *widget, GdkEventCrossing *event, CUIWindow
     //
     // this event is send when mouse enter the window
     //
-    
+
     //g_print ("enter_notify event\n");
     return (gboolean)pWindow->MessageHandler(DUI_WM_MOUSEENTER, (WPARAM)event, NULL);
 }
@@ -95,7 +95,7 @@ gboolean wrap_leave_notify(GtkWidget *widget, GdkEventCrossing *event, CUIWindow
     // this event is send when mouse leave the window
     // In window this event is like WM_MOUSELEAVE
     //
-    
+
     //g_print ("leave_notify event\n");
     return (gboolean)pWindow->MessageHandler(DUI_WM_MOUSELEAVE, (WPARAM)event, NULL);
 }
@@ -107,7 +107,7 @@ gboolean wrap_key_press(GtkWidget *widget, GdkEvent *event, CUIWindow *pWindow)
     // this event is send when key press
     // In window this event is like WM_KEYDOWN
     //
-    
+
     //g_print ("key_press event\n");
     return (gboolean)pWindow->MessageHandler(DUI_WM_KEYPRESS, (WPARAM)event, NULL);
 }
@@ -119,7 +119,7 @@ gboolean wrap_key_release(GtkWidget *widget, GdkEvent *Event, CUIWindow *pWindow
     // this event is send when key press
     // In window this event is like WM_KEYDOWN
     //
-    
+
     //g_print ("key_release event\n");
     return (gboolean)pWindow->MessageHandler(DUI_WM_KEYPRELEASE, (WPARAM)Event, NULL);
 }
@@ -128,7 +128,7 @@ gboolean wrap_timer_event(gpointer userdata)
 {
     TIMERINFO *pTimer = (TIMERINFO *)userdata;
     g_print ("timer event\n");
-    pTimer->pWindow->MessageHandler(DUI_WM_TIMER, (WPARAM)pTimer->pSender, 
+    pTimer->pWindow->MessageHandler(DUI_WM_TIMER, (WPARAM)pTimer->pSender,
         (LPARAM)pTimer->uTimerId);
     return true;
 }
@@ -181,28 +181,28 @@ CUIWindow::~CUIWindow(void)
 void CUIWindow::CenterWindow()
 {
     if (GTK_IS_WINDOW(m_Widget)){
-        
+
         //
-        // use GTK_WIN_POS_CENTER_ALWAYS, GTK_WIN_POS_CENTER do not work. 
+        // use GTK_WIN_POS_CENTER_ALWAYS, GTK_WIN_POS_CENTER do not work.
         //
 
         gtk_window_set_position(GTK_WINDOW(m_Widget), GTK_WIN_POS_CENTER_ALWAYS);
-        
+
     }
 }
 
 UINT CUIWindow::MapKeyState(UINT State)
 {
     UINT retState = 0;
-    if(State | GDK_CONTROL_MASK) 
+    if(State | GDK_CONTROL_MASK)
         retState |= MK_CONTROL;
-    if(State | GDK_BUTTON1_MASK) 
+    if(State | GDK_BUTTON1_MASK)
         retState |= MK_LBUTTON;
-    if(State | GDK_BUTTON3_MASK) 
+    if(State | GDK_BUTTON3_MASK)
         retState |= MK_RBUTTON;
-    if(State | GDK_SHIFT_MASK) 
+    if(State | GDK_SHIFT_MASK)
         retState |= MK_SHIFT;
-    /*if(State | GDK_MOD1_MASK) 
+    /*if(State | GDK_MOD1_MASK)
         retState |= MK_ALT;*/
     return retState;
 }
@@ -218,7 +218,7 @@ bool CUIWindow::MessageHandler(int Msg, WPARAM wParam, LPARAM lParam)
     case DUI_WM_PAINT:
         {
             cairo_t *cr = (cairo_t*)wParam;
-            
+
             if (!m_crPaintContext){
                 GdkWindow *gdkWindow;
                 gdkWindow = gtk_widget_get_window(m_Widget);
@@ -253,12 +253,12 @@ bool CUIWindow::MessageHandler(int Msg, WPARAM wParam, LPARAM lParam)
                         //
 
                         CUIControl* pControl = NULL;
-                        while(pControl = m_Root->FindControl(__FindControlFromUpdate, 
+                        while(pControl = m_Root->FindControl(__FindControlFromUpdate,
                             NULL, UIFIND_VISIBLE | UIFIND_ME_FIRST)){
                                 pControl->SetPos(pControl->GetPos());
                         }
                     }
-                    
+
                     //
                     // generate windows init notify
                     //
@@ -268,7 +268,7 @@ bool CUIWindow::MessageHandler(int Msg, WPARAM wParam, LPARAM lParam)
                         bInit = true;
                         SendNotify(m_Root, DUI_MSGTYPE_WINDOWINIT,  0, 0, false);
                     }
-                    
+
                 }
             }
 
@@ -346,11 +346,11 @@ bool CUIWindow::MessageHandler(int Msg, WPARAM wParam, LPARAM lParam)
         {
             GdkEventButton *Event = (GdkEventButton*)wParam;
             POINT pt = {(LONG)Event->x, (LONG)Event->y};
-            
+
             //
             // set last mouse position
             //
-            
+
             m_ptLastMousePos = pt;
 
             if (Event->type == GDK_BUTTON_RELEASE && Event->button == 1){
@@ -379,11 +379,11 @@ bool CUIWindow::MessageHandler(int Msg, WPARAM wParam, LPARAM lParam)
             bHandled = false;
         }
         break;
-    
+
     //
     // TODO:tooltip WM_MOUSEHOVER
     //
-    
+
     case DUI_WM_MOUSEMOVE:
         {
             GdkEventMotion *Event = (GdkEventMotion *)wParam;
@@ -391,14 +391,14 @@ bool CUIWindow::MessageHandler(int Msg, WPARAM wParam, LPARAM lParam)
 
             m_ptLastMousePos = pt;
             CUIControl* pNewHover = FindControl(pt);
-            if(pNewHover == NULL) 
+            if(pNewHover == NULL)
                 break;
 
             TEventUI SendEvent;
             ZeroMemory(&SendEvent, sizeof(SendEvent));
             SendEvent.ptMouse = pt;
             SendEvent.dwTimestamp = Event->time;
-            
+
             if(pNewHover != m_pEventHover && m_pEventHover != NULL){
                 SendEvent.Type = UIEVENT_MOUSELEAVE;
                 SendEvent.pSender = m_pEventHover;
@@ -505,21 +505,21 @@ void CUIWindow::MainLoop()
 void CUIWindow::Close()
 {
     if (m_Widget){
-        
+
         //
         // we should emit a delete-event
         // since gtk 3.10. export a funtion gtk_window_close.
         // but unfortunately. in windows the last release version is 3.0x
         // but we can do it. this code copy from gtk's source code.
         //
-        
+
         /*
 
         //
         // this code can be worked..umm..too ugly
         // official is always best. is it?
         //
-        
+
         gboolean bHandled=FALSE;
         g_signal_emit_by_name(G_OBJECT(m_Widget), "delete-event", this, &bHandled);
         if (!bHandled){
@@ -541,7 +541,7 @@ void CUIWindow::Close()
 void CUIWindow::Restore()
 {
     if (GTK_IS_WINDOW(m_Widget)){
-        
+
         GdkWindow* gdkWindow;
         GdkWindowState State;
 
@@ -629,20 +629,20 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
     //
     // create a new gtk window
     //
-    
+
     Widget = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     assert(Widget);
-    
+
     //
     // save handle.
     //
-    
+
     m_Widget = Widget;
 
     //
     // set window need intend to handle 'draw' event
     //
-    
+
     gtk_widget_set_app_paintable(Widget, FALSE);
 
     //
@@ -650,9 +650,9 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
     // gtk_widget_set_size_request is set the minimum size of the windows
     // Setting the size request will force them to leave the window at least as large as the size request
     //
-    
+
     gtk_window_set_default_size(GTK_WINDOW(Widget), nWidth, nHeight);
-    
+
     //
     // set window position. 0x80000000 for default.
     //
@@ -664,7 +664,7 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
     //
     // add the event we interest
     //
-    
+
     gtk_widget_add_events(Widget,
         GDK_EXPOSURE_MASK               |
         GDK_SCROLL_MASK                 |
@@ -685,7 +685,7 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
     //
     // set window event handler.
     //
-    
+
     g_signal_connect(G_OBJECT(Widget), "size-allocate", G_CALLBACK(wrap_size), this);
     g_signal_connect(G_OBJECT(Widget), "motion-notify-event", G_CALLBACK(wrap_motion_notify), this);
     g_signal_connect(G_OBJECT(Widget), "button-press-event", G_CALLBACK(wrap_button_press), this);
@@ -699,7 +699,7 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
     //g_signal_connect(G_OBJECT(Widget), "destroy-event", G_CALLBACK(wrap_destroy_event), this);
     g_signal_connect(G_OBJECT(Widget), "destroy", G_CALLBACK(wrap_destroy), this);
     g_signal_connect(G_OBJECT(Widget), "draw", G_CALLBACK(wrap_draw), this);
-    
+
     //
     // generate DUI_WM_CREATE Message
     //
@@ -714,11 +714,11 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
         NOTHING;
 
     }
-    
+
     //
     // 这里统一设下窗口属性
     //
-    
+
     if (m_MinSizeInfo.IsNull()){
         m_MinSizeInfo = m_InitSize;
     }
@@ -728,17 +728,17 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
         m_MaxSizeInfo.cy = -1;
     }
     if (m_rcSizeBox.IsNull()){
-        
+
         //
         // can not be resize
         //
-        
+
         GdkGeometry geometry;
         geometry.min_width = m_MinSizeInfo.cx;
         geometry.min_height = m_MinSizeInfo.cy;
         geometry.max_width = m_MinSizeInfo.cx;
         geometry.max_height = m_MinSizeInfo.cy;
-        
+
         gtk_window_set_geometry_hints(GTK_WINDOW(m_Widget), m_Widget,
             &geometry, (GdkWindowHints)(GDK_HINT_MIN_SIZE | GDK_HINT_MAX_SIZE));
     }else{
@@ -757,11 +757,11 @@ bool CUIWindow::Create(int x, int y, int nWidth, int nHeight)
 
 bool CUIWindow::InitControls(CUIControl* Root, CUIControl* pParent)
 {
-    
+
     //
     // 将窗口实例设置到每个控件中去
     //
-    
+
     Root->SetOwnWindow(this, pParent, true);
 
     //
@@ -808,7 +808,7 @@ CUIControl* CUIWindow::FindSubControlByName(CUIControl* pParent, LPCWSTR pstrNam
 //     m_aFoundControls.Resize(iIndex + 1);
 //     return pParent->FindControl(__FindControlFromClass, (LPVOID)pstrClass, UIFIND_ALL);
 // }
-// 
+//
 // CStdPtrArray* CUIWindow::FindSubControlsByClass(CUIControl* pParent, LPCTSTR pstrClass)
 // {
 //     if( pParent == NULL ) pParent = GetRoot();
@@ -870,7 +870,7 @@ CUIControl* CALLBACK CUIWindow::__FindControlFromPoint(CUIControl* pThis, LPVOID
 
 // CUIControl* CALLBACK CUIWindow::__FindControlFromShortcut(CUIControl* pThis, LPVOID pData)
 // {
-//     if( !pThis->IsVisible() ) return NULL; 
+//     if( !pThis->IsVisible() ) return NULL;
 //     FINDSHORTCUT* pFS = static_cast<FINDSHORTCUT*>(pData);
 //     if( pFS->ch == toupper(pThis->GetShortcut()) ) pFS->bPickNext = true;
 //     if( _tcsstr(pThis->GetClass(), _T("LabelUI")) != NULL ) return NULL;   // Labels never get focus!
@@ -899,7 +899,7 @@ CUIControl* CALLBACK CUIWindow::__FindControlFromName(CUIControl* pThis, LPVOID 
 //         while( pFoundControls->GetAt(++iIndex) != NULL ) ;
 //         if( iIndex < pFoundControls->GetSize() ) pFoundControls->SetAt(iIndex, pThis);
 //     }
-//     if( pFoundControls->GetAt(pFoundControls->GetSize() - 1) != NULL ) return pThis; 
+//     if( pFoundControls->GetAt(pFoundControls->GetSize() - 1) != NULL ) return pThis;
 //     return NULL;
 // }
 
@@ -907,7 +907,7 @@ CUIControl* CALLBACK CUIWindow::__FindControlFromName(CUIControl* pThis, LPVOID 
 // {
 //     LPCTSTR pstrType = static_cast<LPCTSTR>(pData);
 //     LPCTSTR pType = pThis->GetClass();
-//     if( _tcscmp(pstrType, _T("*")) == 0 || _tcscmp(pstrType, pType) == 0 ) 
+//     if( _tcscmp(pstrType, _T("*")) == 0 || _tcscmp(pstrType, pType) == 0 )
 //         pThis->GetManager()->GetSubControlsByClass()->Add((LPVOID)pThis);
 //     return NULL;
 // }
@@ -921,13 +921,13 @@ bool CUIWindow::SetTimer(CUIControl* pControl, UINT uElapse)
 {
     assert(pControl != NULL);
     assert(uElapse > 0);
-    
+
     TIMERINFO* pTimer = new TIMERINFO;
-    if(pTimer == NULL) 
+    if(pTimer == NULL)
         return FALSE;
-    
+
     memset(pTimer, 0, sizeof(*pTimer));
-    
+
     pTimer->pWindow = this;
     pTimer->bKilled = false;
     pTimer->pSender = pControl;
@@ -958,7 +958,7 @@ void CUIWindow::KillTimer(CUIControl* pControl)
     for(int i = 0, j = 0; i < count; i++){
         TIMERINFO* pTimer = static_cast<TIMERINFO*>(m_aTimers[i - j]);
         if(pTimer->pSender == pControl){
-            if(pTimer->bKilled == false) 
+            if(pTimer->bKilled == false)
                 g_source_remove(pTimer->uTimerId);
             delete pTimer;
             m_aTimers.Remove(i - j);
@@ -1001,7 +1001,7 @@ bool CUIWindow::AddOptionGroup(LPCWSTR pStrGroupName, CUIControl* pControl)
 CStdPtrArray* CUIWindow::GetOptionGroup(LPCWSTR pStrGroupName)
 {
     LPVOID lp = m_mOptionGroup.Find(pStrGroupName);
-    if(lp) 
+    if(lp)
         return static_cast<CStdPtrArray*>(lp);
     return NULL;
 }
@@ -1011,7 +1011,7 @@ void CUIWindow::RemoveOptionGroup(LPCWSTR pStrGroupName, CUIControl* pControl)
     LPVOID lp = m_mOptionGroup.Find(pStrGroupName);
     if( lp ) {
         CStdPtrArray* aOptionGroup = static_cast<CStdPtrArray*>(lp);
-        if( aOptionGroup == NULL ) 
+        if( aOptionGroup == NULL )
             return;
         for( int i = 0; i < aOptionGroup->GetSize(); i++ ) {
             if( static_cast<CUIControl*>(aOptionGroup->GetAt(i)) == pControl ) {
@@ -1043,7 +1043,7 @@ GtkWidget* CUIWindow::GetWidget()
     return m_Widget;
 }
 
-void CUIWindow::SendNotify(CUIControl* pControl, UINT uMsgType, WPARAM wParam /*= 0*/, 
+void CUIWindow::SendNotify(CUIControl* pControl, UINT uMsgType, WPARAM wParam /*= 0*/,
                            LPARAM lParam /*= 0*/, bool bAsync /*= false*/)
 {
     TNotifyUI Msg;
@@ -1062,7 +1062,7 @@ void CUIWindow::SendNotify(TNotifyUI& Msg, bool bAsync)
     //
     // TODO:VirtualWnd
     //
-    
+
     //if(m_bUsedVirtualWnd){
     //    Msg.sVirtualWnd = Msg.pSender->GetVirtualWnd();
     //}
@@ -1074,7 +1074,7 @@ void CUIWindow::SendNotify(TNotifyUI& Msg, bool bAsync)
         //
 
         /*if(Msg.pSender != NULL){
-            if(Msg.pSender->OnNotify) 
+            if(Msg.pSender->OnNotify)
                 Msg.pSender->OnNotify(&Msg);
         }*/
 
@@ -1082,17 +1082,17 @@ void CUIWindow::SendNotify(TNotifyUI& Msg, bool bAsync)
             static_cast<INotifyUI*>(m_aNotifiers[i])->Notify(Msg);
         }
     }else{
-        
+
         //
         // TODO: Asynchronous
         //
-        
+
     }
 }
 
 bool CUIWindow::AddNotifier(INotifyUI* pNotifier)
 {
-    assert(m_aNotifiers.Find(pNotifier)<0);
+    //assert(m_aNotifiers.Find(pNotifier)<0);
     return m_aNotifiers.Add(pNotifier);
 }
 
@@ -1118,16 +1118,16 @@ void CUIWindow::AddDefaultAttributeList(LPCWSTR pStrControlName, LPCWSTR pStrCon
 LPCWSTR CUIWindow::GetDefaultAttributeList(LPCWSTR pStrControlName) const
 {
     CUIString* pDefaultAttr = static_cast<CUIString*>(m_DefaultAttrHash.Find(pStrControlName));
-    if(pDefaultAttr) 
+    if(pDefaultAttr)
         return pDefaultAttr->GetData();
-    else 
+    else
         return NULL;
 }
 
 bool CUIWindow::RemoveDefaultAttributeList(LPCWSTR pStrControlName)
 {
     CUIString* pDefaultAttr = static_cast<CUIString*>(m_DefaultAttrHash.Find(pStrControlName));
-    if(!pDefaultAttr) 
+    if(!pDefaultAttr)
         return false;
 
     delete pDefaultAttr;
@@ -1195,7 +1195,7 @@ void CUIWindow::SetMaxSize(const CUISize& size)
 {
     m_MaxSizeInfo = size;
     /*GdkGeometry geometry;
-    
+
     //
     // 这里如果设置了sizebox.就不能设置max box
     //
@@ -1206,7 +1206,7 @@ void CUIWindow::SetMaxSize(const CUISize& size)
 
     geometry.max_height = size.cx;
     geometry.max_width = size.cy;
-    
+
     m_MaxSizeInfo = size;
 
     //
@@ -1215,7 +1215,7 @@ void CUIWindow::SetMaxSize(const CUISize& size)
     // 的这个函数是有bug的.即使设置了max size.窗口照样可以拖动
     // 在linux下就没问题
     //
-    
+
     gtk_window_set_geometry_hints(GTK_WINDOW(m_Widget), m_Widget,
         &geometry, GDK_HINT_MAX_SIZE);*/
 }
@@ -1227,13 +1227,13 @@ void CUIWindow::SetMinSize(const CUISize& size)
 
     geometry.min_width = size.cx;
     geometry.min_height = size.cy;
-    
+
     m_MinSizeInfo = size;
 
     //
     // GDK_HINT_MIN_SIZE同上.见上面SetMaxSize的注释
     //
-    
+
     gtk_window_set_geometry_hints(GTK_WINDOW(m_Widget), m_Widget,
         &geometry, GDK_HINT_MIN_SIZE);*/
 }

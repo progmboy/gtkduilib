@@ -1,7 +1,6 @@
 // gtkduilib_test.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 
 #include <vector>
 #include "../gtkduilib/UILib.h"
@@ -95,49 +94,15 @@ public:
 
     void InitWindow()
     {
+        //AddNotifier(this);
         CDialogBuilder builer;
-        CUIControl *pRoot = builer.Create(L"PlayerMain2.xml", this, NULL);
-        //CDialogBuilderCallbackEx cb;
-        //builer.SetCallback(&cb);
-        //CUIControl *pRoot = builer.Create(L"skin2.xml", this, NULL);
+        CDialogBuilderCallbackEx cb;
+        builer.SetCallback(&cb);
+        CUIControl *pRoot = builer.Create(L"skin2.xml", this, NULL);
         if (pRoot){
             AttachDlg(pRoot);
+            AddNotifier(this);
         }
-
-        CDialogBuilder builer2;
-        CUILabel *pTempLabel;
-        CListContainerElementUI *pListElement = static_cast<CListContainerElementUI*>(builer2.Create(L"music_list.xml"));
-        CListUI* pControl = static_cast<CListUI*>(FindControl(L"fuck_list"));
-
-        pTempLabel = static_cast<CUILabel*>(pListElement->FindSubControl(L"music_title"));
-        assert(pTempLabel);
-        pTempLabel->SetText(L"fuck");
-
-        pTempLabel = static_cast<CUILabel*>(pListElement->FindSubControl(L"auth_name"));
-        assert(pTempLabel);
-        pTempLabel->SetText(L"ssss");
-
-        pTempLabel = static_cast<CUILabel*>(pListElement->FindSubControl(L"song_time"));
-        assert(pTempLabel);
-        pTempLabel->SetText(L"--:--");
-        pControl->Add(pListElement);
-
-        CDialogBuilder builer3;
-        pListElement = static_cast<CListContainerElementUI*>(builer3.Create(L"music_list.xml"));
-        pControl = static_cast<CListUI*>(FindControl(L"fuck_list"));
-
-        pTempLabel = static_cast<CUILabel*>(pListElement->FindSubControl(L"music_title"));
-        assert(pTempLabel);
-        pTempLabel->SetText(L"fuck2");
-
-        pTempLabel = static_cast<CUILabel*>(pListElement->FindSubControl(L"auth_name"));
-        assert(pTempLabel);
-        pTempLabel->SetText(L"aaa");
-
-        pTempLabel = static_cast<CUILabel*>(pListElement->FindSubControl(L"song_time"));
-        assert(pTempLabel);
-        pTempLabel->SetText(L"20:20");
-        pControl->Add(pListElement);
     }
 
     void Notify(TNotifyUI& msg)
@@ -203,14 +168,13 @@ int _tmain(int argc, _TCHAR* argv[])
 int main(int argc, char* argv[])
 #endif
 {
-
     //CResourceMgr ss;
 
     gtk_init(NULL, NULL);
 
     CSkinWnd Window;
     //CResourceMgr::GetInstance().SetResourePath(L"/home/pgboy/qyplayer");
-    CResourceMgr::GetInstance().SetResourePath(L"../skin/qyplayer");
+    CResourceMgr::GetInstance().SetResourePath(L"../skin/360SafeRes");
 
     Window.Create(0, 0, /*400*/800, /*500*/570);
 
@@ -222,4 +186,5 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
+
 

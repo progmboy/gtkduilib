@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+	<ListContainerElement height="30">
+	    <HorizontalLayout bkcolor="#006B93B2">
+	        <Label name="music_title" text="1" width="40"  textpadding="10,0,0,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" endellipsis="true" />
+	        <Label name="auth_name" text="fuck" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+	        <Label name="song_time" text="10:00" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" width="70"/>
+	    </HorizontalLayout>
+	</ListContainerElement>
+</Window>
