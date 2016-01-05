@@ -19,7 +19,7 @@ open the workspace and build
 ```
 
 ##Demo
-以前弄好的Demo找不到了但是有截图.
+大家可以看下demo.
 
 player run in windows:
 
